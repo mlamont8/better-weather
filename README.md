@@ -1,3 +1,3 @@
 # Better Weather
 
-A Weather app built with React using the openweathermap api.
+A Weather app built with React using the weather underground api.

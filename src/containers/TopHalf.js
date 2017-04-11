@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { Image } from 'react-bootstrap';
 
 const apiKey = 'f67b93e533d6313a';
+
+
 class TopHalf extends React.Component {
 
   constructor(props) {
@@ -25,18 +28,38 @@ class TopHalf extends React.Component {
     }
   )
   }
+// data.conditions
 
-  render() {
-    const data = this.state.forecast
-    console.log(data)
+    render() {
 
-    return (
-      <div>
-        <div className="row"></div>
-      </div>
-    );
+      return (
+        <div className="row halfcontainer">
+          {this.state.forecast.map(data => {
+            return (
+              <div key={data.id} className="col-md-3 forecastBlock">
+                <p>
+                  {data.date.weekday}
+                </p>
+                <Image responsive src={'https://icons.wxug.com/i/c/k/' + data.icon + '.gif'}></Image>
+                <div className='row'>
+                  <div className='col-md-6'>
+                    High: {data.high.fahrenheit}
+                  </div>
+                  <div className='col-md-6'>
+                    Low: {data.low.fahrenheit}
+
+                  </div>
+
+                </div>
+              </div>
+
+            )
+          })}
+
+        </div>
+      );
+    }
+
   }
 
-}
-
-export default TopHalf;
+  export default TopHalf;

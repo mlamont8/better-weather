@@ -4,3 +4,10 @@
 .halfcontainer {
   min-height: 300px;
   border-style: solid; }
+
+.currentTemp {
+  border-style: solid;
+  letter-spacing: -4px; }
+
+.jumbotron {
+  padding-top: 20px; }

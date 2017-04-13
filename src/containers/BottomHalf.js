@@ -44,12 +44,24 @@ class BottomHalf extends React.Component {
 
   render() {
     return (
-      <div className='halfcontainer'>
+      <div className='halfcontainer jumbotron'>
+        <div className="row text-center">
+          <h2>
+            {this.state.location}
+          </h2>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            <div className=" col-md-4 col-md-offset-4 currentTemp well text-center">
+              <h1>{this.state.temp} &#176;</h1>
+            </div>
+          </div>
         <div className="col-md-6">
           <Image responsive src={'https://icons.wxug.com/i/c/k/' + this.state.icon + '.gif'}></Image>
 
 
         </div>
+      </div>
       </div>
     );
   }

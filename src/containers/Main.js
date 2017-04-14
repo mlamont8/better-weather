@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
-import TopHalf from './TopHalf';
-import BottomHalf from './BottomHalf';
+import CurrentContainer from './CurrentContainer';
+import ForecastContainer from './ForecastContainer';
 import axios from 'axios';
 
 
@@ -43,12 +43,12 @@ class Main extends React.Component {
     :
       <div>
         <Header />
-        <TopHalf
+        <CurrentContainer
           city={this.state.city}
           state={this.state.state}
 
       />
-        <BottomHalf
+        <ForecastContainer
           city={this.state.city}
           state={this.state.state}
       />

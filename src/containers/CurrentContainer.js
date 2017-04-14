@@ -8,7 +8,7 @@ import Wind  from '../components/wind';
 
 const apiKey = 'f67b93e533d6313a';
 
-class BottomHalf extends React.Component {
+class CurrentContainer extends React.Component {
 
   constructor(props){
     super(props);
@@ -78,10 +78,10 @@ class BottomHalf extends React.Component {
 
 }
 
-// BottomHalf.propsTypes = {
+// CurrentContainer.propsTypes = {
 //   city: React.PropTypes.string,
 //   state: React.PropTypes.string
 // }
 
 
-export default BottomHalf;
+export default CurrentContainer;

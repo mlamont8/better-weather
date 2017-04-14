@@ -5,7 +5,7 @@ import { Image } from 'react-bootstrap';
 const apiKey = 'f67b93e533d6313a';
 
 
-class TopHalf extends React.Component {
+class ForecastContainer extends React.Component {
 
   constructor(props) {
     super(props);
@@ -28,7 +28,7 @@ class TopHalf extends React.Component {
     }
   )
   }
-// data.conditions
+
 
     render() {
 
@@ -36,7 +36,7 @@ class TopHalf extends React.Component {
         <div className="row halfcontainer">
           {this.state.forecast.map(data => {
             return (
-              <div key={data.id} className="col-md-3 forecastBlock">
+              <div key={data.id} className="col-md-2 col-md-offset-1 forecastBlock">
                 <p>
                   {data.date.weekday}
                 </p>
@@ -63,4 +63,4 @@ class TopHalf extends React.Component {
 
   }
 
-  export default TopHalf;
+  export default ForecastContainer;

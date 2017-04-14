@@ -41,6 +41,7 @@ class TopHalf extends React.Component {
                   {data.date.weekday}
                 </p>
                 <Image responsive src={'https://icons.wxug.com/i/c/k/' + data.icon + '.gif'}></Image>
+                {data.conditions}
                 <div className='row'>
                   <div className='col-md-6'>
                     High: {data.high.fahrenheit}

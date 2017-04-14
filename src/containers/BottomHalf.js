@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { Image } from 'react-bootstrap';
+import Location from '../components/location';
+import CurrentTemp from '../components/currentTemp';
+import Wind  from '../components/wind';
 
 
 const apiKey = 'f67b93e533d6313a';
@@ -45,20 +48,27 @@ class BottomHalf extends React.Component {
   render() {
     return (
       <div className='halfcontainer jumbotron'>
-        <div className="row text-center">
-          <h2>
-            {this.state.location}
-          </h2>
-        </div>
+          <Location
+            city={this.props.city}
+            state={this.props.state}
+          />
         <div className="row">
-          <div className="col-md-6">
-            <div className=" col-md-4 col-md-offset-4 currentTemp well text-center">
-              <h1>{this.state.temp} &#176;</h1>
-            </div>
-          </div>
+          <CurrentTemp
+            temp={this.state.temp}
+          />
         <div className="col-md-6">
-          <Image responsive src={'https://icons.wxug.com/i/c/k/' + this.state.icon + '.gif'}></Image>
+          <div className="col-md-6 text-center">
+            <h3>
+              {this.state.condition}
+            </h3>
 
+          <Image src={'https://icons.wxug.com/i/c/k/' + this.state.icon + '.gif'}></Image>
+        </div>
+        <Wind
+          windSp={this.state.windSp}
+          windDir={this.state.windDir}
+
+        />
 
         </div>
       </div>
@@ -67,5 +77,11 @@ class BottomHalf extends React.Component {
   }
 
 }
+
+// BottomHalf.propsTypes = {
+//   city: React.PropTypes.string,
+//   state: React.PropTypes.string
+// }
+
 
 export default BottomHalf;

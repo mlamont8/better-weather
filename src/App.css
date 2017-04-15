@@ -1,16 +1,21 @@
 .App {
   text-align: center; }
 
+.main {
+  background-color: #374140;
+  color: #D9CB9E; }
+
 .halfcontainer {
-  min-height: 300px;
-  border-style: solid; }
+  min-height: 300px; }
 
 .currentTemp {
-  border-style: solid;
-  letter-spacing: -4px; }
+  background-color: #2A2C2B; }
 
 .jumbotron {
-  padding-top: 20px; }
+  padding-top: 20px;
+  background-color: #1E1E20; }
 
 .forecastBlock {
-  border-style: solid; }
+  margin: 45px;
+  height: 150px;
+  background-color: #1E1E20; }

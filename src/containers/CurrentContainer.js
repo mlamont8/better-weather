@@ -56,8 +56,8 @@ class CurrentContainer extends React.Component {
           <CurrentTemp
             temp={this.state.temp}
           />
-        <div className="col-md-6">
-          <div className="col-md-6 text-center">
+
+          <div className="col-md-8 text-center">
             <h3>
               {this.state.condition}
             </h3>
@@ -71,7 +71,7 @@ class CurrentContainer extends React.Component {
         />
 
         </div>
-      </div>
+
       </div>
     );
   }

@@ -1,23 +1,36 @@
+$base : #374140;
+$black : #1E1E20;
+$light: #D9CB9E;
+$gray: #2A2C2B;
+
+
 .App {
   text-align: center;
 }
 
+.main {
+  background-color: $base;
+  color: $light;
+}
+
 .halfcontainer {
   min-height: 300px;
-  border-style: solid;
+
 }
 
 .currentTemp{
-  border-style: solid;
-
-      letter-spacing: -4px;
-
+  
+      background-color: $gray;
 }
 
 .jumbotron{
   padding-top: 20px;
+  background-color: $black;
 }
 
 .forecastBlock {
-  border-style: solid;
+
+  margin: 45px;
+  height: 150px;
+  background-color: $black;
 }

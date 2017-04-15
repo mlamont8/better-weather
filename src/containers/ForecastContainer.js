@@ -36,11 +36,11 @@ class ForecastContainer extends React.Component {
         <div className="row halfcontainer">
           {this.state.forecast.map(data => {
             return (
-              <div key={data.id} className="col-md-2 col-md-offset-1 forecastBlock">
+              <div key={data.id} className="col-md-2 forecastBlock text-center">
                 <p>
                   {data.date.weekday}
                 </p>
-                <Image responsive src={'https://icons.wxug.com/i/c/k/' + data.icon + '.gif'}></Image>
+                <Image responsive className="center-block" src={'https://icons.wxug.com/i/c/k/' + data.icon + '.gif'}></Image>
                 {data.conditions}
                 <div className='row'>
                   <div className='col-md-6'>

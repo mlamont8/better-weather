@@ -4,6 +4,13 @@ import { Navbar, FormGroup, FormControl, Button } from 'react-bootstrap';
 
 class Header extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: ''
+    };
+  }
+
   render() {
     return (
       <Navbar>
@@ -14,13 +21,22 @@ class Header extends React.Component {
        <Navbar.Toggle />
      </Navbar.Header>
      <Navbar.Collapse>
+
        <Navbar.Form pullRight>
          <FormGroup>
-           <FormControl type="text" placeholder="Search" />
+
+           <FormControl
+             type="text"
+             placeholder="Search"
+             onChange
+
+           />
+
          </FormGroup>
          {' '}
          <Button type="submit">Submit</Button>
        </Navbar.Form>
+
      </Navbar.Collapse>
    </Navbar>
     );

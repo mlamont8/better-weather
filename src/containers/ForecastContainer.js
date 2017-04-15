@@ -19,6 +19,7 @@ class ForecastContainer extends React.Component {
   componentDidMount() {
     axios.get('http://api.wunderground.com/api/'+ apiKey + '/forecast/q/' + this.props.state +'/'+this.props.city+ '.json')
     .then ((data) => {
+      console.log('forecast',data.data.forecast.simpleforecast.forecastday)
       this.setState(
         {
           forecast: data.data.forecast.simpleforecast.forecastday,
@@ -34,9 +35,9 @@ class ForecastContainer extends React.Component {
 
       return (
         <div className="row halfcontainer">
-          {this.state.forecast.map(data => {
+          {this.state.forecast.map((data, index) => {
             return (
-              <div key={data.id} className="col-md-2 forecastBlock text-center">
+              <div key={index} className="col-md-2 forecastBlock text-center">
                 <p>
                   {data.date.weekday}
                 </p>

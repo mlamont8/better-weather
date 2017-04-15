@@ -16,7 +16,7 @@ class CurrentContainer extends React.Component {
       icon: '',
       location: '',
       date: '',
-      temp: '',
+      temp: 0,
       condition: '',
       windDir: '',
       windSp: '',
@@ -46,7 +46,9 @@ class CurrentContainer extends React.Component {
   }
 
   render() {
-    return (
+    return this.state.retrieving === true ?
+    <div> Loading...</div> :
+    (
       <div className='halfcontainer jumbotron'>
           <Location
             city={this.props.city}

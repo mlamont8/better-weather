@@ -1,24 +1,12 @@
 import React from 'react';
-import Header from './Header';
-import { Navbar, FormGroup, FormControl, Button } from 'react-bootstrap';
+import { Navbar, FormGroup, Button } from 'react-bootstrap';
 import CurrentContainer from './CurrentContainer';
 import ForecastContainer from './ForecastContainer';
 import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
 import fetchJsonp from 'fetch-jsonp';
 
-// Imagine you have a list of languages that you'd like to autosuggest.
-const languages = [
-  {
-    name: 'C',
-    year: 1972
-  },
-  {
-    name: 'Elm',
-    year: 2012
-  }
 
-];
 
 // Teach Autosuggest how to calculate suggestions for any given input value.
 const getSuggestions = value => {

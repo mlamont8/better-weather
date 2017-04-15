@@ -8,7 +8,7 @@ const CurrentTemp = ({temp}) => (
 )
 
 CurrentTemp.propTypes = {
-  temp: React.PropTypes.string.isRequired
+  temp: React.PropTypes.number.isRequired
 }
 
 export default CurrentTemp;

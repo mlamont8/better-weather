@@ -4,6 +4,7 @@ import { Image } from 'react-bootstrap';
 import Location from '../components/location';
 import CurrentTemp from '../components/currentTemp';
 import Wind  from '../components/wind';
+import PropTypes from 'prop-types';
 
 
 const apiKey = 'f67b93e533d6313a';
@@ -25,15 +26,15 @@ class CurrentContainer extends React.Component {
     }
   }
 
-  componentDidMount() {
-    axios.get('http://api.wunderground.com/api/' + apiKey + '/conditions/q/' + this.props.state + '/' + this.props.city + '.json')
+  getCurrentInfo(state, city){
+    axios.get('http://api.wunderground.com/api/' + apiKey + '/conditions/q/' + state + '/' + city + '.json')
     .then ((data) => {
       this.setState(
         {
           icon: data.data.current_observation.icon,
           location: data.data.current_observation.display_location.city,
           date: data.data.current_observation.local_time_rfc822,
-          temp: data.data.current_observation.temp_f,
+          temp: Math.trunc(data.data.current_observation.temp_f),
           condition: data.data.current_observation.weather,
           windDir: data.data.current_observation.wind_dir,
           windSp: data.data.current_observation.wind_mph,
@@ -41,9 +42,24 @@ class CurrentContainer extends React.Component {
         }
       )
 
-      console.log('bottomhalf', data)
-    })
+      })
   }
+
+  componentDidMount() {
+    const state = this.props.state
+    const city = this.props.city
+    this.getCurrentInfo(state, city)
+  }
+
+  componentWillReceiveProps(nextProps){
+  // Check if city actually changed
+  if(JSON.stringify(this.props.city) !== JSON.stringify(nextProps.city))
+    {
+      const city = nextProps.city
+      const state = nextProps.state
+      this.getCurrentInfo(state, city)
+     }
+}
 
   render() {
     return this.state.retrieving === true ?
@@ -80,10 +96,10 @@ class CurrentContainer extends React.Component {
 
 }
 
-// CurrentContainer.propsTypes = {
-//   city: React.PropTypes.string,
-//   state: React.PropTypes.string
-// }
+CurrentContainer.propTypes = {
+  city: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired
+}
 
 
 export default CurrentContainer;

@@ -2,42 +2,10 @@ import React from 'react';
 import { Navbar, FormGroup, Button } from 'react-bootstrap';
 import CurrentContainer from './CurrentContainer';
 import ForecastContainer from './ForecastContainer';
-import Autosuggest from 'react-autosuggest';
 import axios from 'axios';
-import fetchJsonp from 'fetch-jsonp';
+import Geosuggest from 'react-geosuggest';
 
 
-
-// Teach Autosuggest how to calculate suggestions for any given input value.
-const getSuggestions = value => {
-  const inputValue = value.trim().toLowerCase();
-  const inputLength = inputValue.length;
-
-  return inputLength < 4 ? [] : fetchJsonp('https://autocomplete.wunderground.com/aq?query='+ inputValue, {
-                                          jsonCallback: 'my_callback'
-  })
-                                  .then(function(response) {
-                                    return response.json()
-                                  }).then(function(json) {
-                                    console.log(json.results)
-                                  }).catch(function(ex) {
-                                    console.log('autocomplete failed', ex)
-                                  })
-
-
-};
-
-// When suggestion is clicked, Autosuggest needs to populate the input element
-// based on the clicked suggestion. Teach Autosuggest how to calculate the
-// input value for every given suggestion.
-const getSuggestionValue = suggestion => suggestion.name;
-
-// Use your imagination to render suggestions.
-const renderSuggestion = suggestion => (
-  <div>
-    {suggestion.name}
-  </div>
-);
 
 
 class Main extends React.Component {
@@ -47,9 +15,10 @@ class Main extends React.Component {
     this.state = {
       city: '',
       value: '',
-      suggestions: [],
       retrieving: true,
-      isSearching: false
+      lat: 0,
+      long: 0
+
     }
   };
 
@@ -70,42 +39,26 @@ class Main extends React.Component {
   )
   }
 
-  onChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue
-    });
-  };
 
-  // Autosuggest will call this function every time you need to update suggestions.
-// You already implemented this logic above, so just use it.
-onSuggestionsFetchRequested = ({ value }) => {
-  this.setState({
-    suggestions: getSuggestions(value)
-  });
-};
+// Updates lat and long after new search selection
+onSuggestSelection(suggest) {
+  console.log(suggest.gmaps)
+  this.setState(
+    {
+      city: suggest.gmaps.address_components[0].long_name,
+      state: suggest.gmaps.address_components[2].short_name
+    }
+  )
 
-// Autosuggest will call this function every time you need to clear suggestions.
-onSuggestionsClearRequested = () => {
-  this.setState({
-    suggestions: []
-  });
-};
+}
 
 
   render() {
 
-    const { value, suggestions, isSearching } = this.state;
+    const { retrieving } = this.state;
 
-// Autosuggest will pass through all these props to the input element.
-const inputProps = {
-  placeholder: 'Type in a city',
-  value,
-  onChange: this.onChange
-};
 
-const status = (isSearching ? 'Checking...': 'Type for suggestions');
-
-    return this.state.retrieving === true
+    return retrieving === true
     ? <p>Loading</p>
     :
       <div className="container main">
@@ -121,25 +74,13 @@ const status = (isSearching ? 'Checking...': 'Type for suggestions');
          <Navbar.Form pullRight>
            <FormGroup>
 
-             {/* <FormControl
-               type="text"
-               placeholder="Search"
-               onChange
 
-             /> */}
              <div>
-               <div className="status">
-                  <strong>Status:</strong>
-                  {status}
-               </div>
-
-             <Autosuggest
-                suggestions={suggestions}
-                onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-                onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-                getSuggestionValue={getSuggestionValue}
-                renderSuggestion={renderSuggestion}
-                inputProps={inputProps}
+             <Geosuggest
+               placeholder='Enter City Name'
+               className='citySuggest'
+               types={['(cities)']}
+               onSuggestSelect={this.onSuggestSelection.bind(this)}
              />
              </div>
            </FormGroup>
@@ -153,7 +94,6 @@ const status = (isSearching ? 'Checking...': 'Type for suggestions');
         <CurrentContainer
           city={this.state.city}
           state={this.state.state}
-
       />
         <ForecastContainer
           city={this.state.city}

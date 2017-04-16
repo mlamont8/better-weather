@@ -15,7 +15,8 @@
     "react": "^15.5.3",
     "react-autosuggest": "^9.0.0",
     "react-bootstrap": "^0.30.8",
-    "react-dom": "^15.5.3"
+    "react-dom": "^15.5.3",
+    "react-geosuggest": "^2.1.0"
   },
   "scripts": {
     "build-css": "node-sass src/ -o src/",

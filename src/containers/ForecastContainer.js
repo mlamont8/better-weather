@@ -15,9 +15,8 @@ class ForecastContainer extends React.Component {
     }
   }
 
-
-  componentDidMount() {
-    axios.get('http://api.wunderground.com/api/'+ apiKey + '/forecast/q/' + this.props.state +'/'+this.props.city+ '.json')
+  getForecastData(state, city){
+    axios.get('http://api.wunderground.com/api/'+ apiKey + '/forecast/q/' + state +'/'+city+ '.json')
     .then ((data) => {
       console.log('forecast',data.data.forecast.simpleforecast.forecastday)
       this.setState(
@@ -29,6 +28,22 @@ class ForecastContainer extends React.Component {
     }
   )
   }
+
+  componentDidMount() {
+    const state = this.props.state
+    const city = this.props.city
+    this.getForecastData(state, city)
+  }
+
+  componentWillReceiveProps(nextProps){
+  // Check if city actually changed
+  if(JSON.stringify(this.props.city) !== JSON.stringify(nextProps.city))
+    {
+      const city = nextProps.city
+      const state = nextProps.state
+      this.getForecastData(state, city)
+     }
+}
 
 
     render() {

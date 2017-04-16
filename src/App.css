@@ -3,7 +3,8 @@
 
 .main {
   background-color: #374140;
-  color: #D9CB9E; }
+  color: #D9CB9E;
+  background-image: url("./images/bw-background.png"); }
 
 .halfcontainer {
   min-height: 300px; }

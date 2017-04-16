@@ -6,11 +6,14 @@ $gray: #2A2C2B;
 
 .App {
   text-align: center;
+
 }
 
 .main {
   background-color: $base;
   color: $light;
+  background-image: url('./images/bw-background.png');
+
 }
 
 .halfcontainer {
@@ -19,7 +22,7 @@ $gray: #2A2C2B;
 }
 
 .currentTemp{
-  
+
       background-color: $gray;
 }
 

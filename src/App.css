@@ -6,10 +6,10 @@
   color: #D9CB9E;
   background-image: url("./images/bw-background.png"); }
 
-.navbar {
-  border: none;
-  border-radius: 0;
-  background-color: rgba(0, 0, 0, 0.5); }
+.navbar-inverse {
+  background-color: transparent;
+  border-bottom: none;
+  background-image: none; }
 
 .halfcontainer {
   min-height: 300px; }
@@ -27,7 +27,14 @@
   background-color: #1E1E20; }
 
 .geosuggest__input {
-  border-radius: 30px; }
+  border-radius: 30px;
+  width: 300px;
+  padding: 5px;
+  border: 5px;
+  background-color: #1E1E20; }
 
 .geosuggest__input-wrapper {
   padding: 5px 15px 0 0; }
+
+.navbar-inverse .navbar-brand {
+  color: #D9CB9E; }

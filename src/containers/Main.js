@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, FormGroup, Button } from 'react-bootstrap';
+import { Navbar, FormGroup } from 'react-bootstrap';
 import CurrentContainer from './CurrentContainer';
 import ForecastContainer from './ForecastContainer';
 import axios from 'axios';
@@ -90,8 +90,6 @@ onSuggestSelection(suggest) {
              </div>
            </FormGroup>
 
-           {' '}
-           <Button type="submit">Submit</Button>
          </Navbar.Form>
 
        </Navbar.Collapse>

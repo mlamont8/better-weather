@@ -16,10 +16,12 @@ $gray: #2A2C2B;
 
 }
 
-.navbar{
-  border: none;
-  border-radius: 0;
-  background-color: rgba(0,0,0,0.5);
+
+.navbar-inverse{
+  background-color: transparent;
+  border-bottom: none;
+  background-image: none;
+
 }
 
 .halfcontainer {
@@ -46,7 +48,15 @@ $gray: #2A2C2B;
 
 .geosuggest__input {
   border-radius: 30px;
+  width: 300px;
+  padding: 5px;
+  border: 5px;
+  background-color: $black;
 }
 .geosuggest__input-wrapper {
   padding: 5px 15px 0 0;
+}
+
+.navbar-inverse .navbar-brand{
+  color: $light;
 }

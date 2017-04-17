@@ -6,6 +6,11 @@
   color: #D9CB9E;
   background-image: url("./images/bw-background.png"); }
 
+.navbar {
+  border: none;
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0.5); }
+
 .halfcontainer {
   min-height: 300px; }
 
@@ -20,3 +25,9 @@
   margin: 45px;
   height: 150px;
   background-color: #1E1E20; }
+
+.geosuggest__input {
+  border-radius: 30px; }
+
+.geosuggest__input-wrapper {
+  padding: 5px 15px 0 0; }

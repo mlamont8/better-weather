@@ -26,11 +26,14 @@ class CurrentContainer extends React.Component {
     }
   }
 
-  getCurrentInfo(state, city){
-    axios.get('http://api.wunderground.com/api/' + apiKey + '/conditions/q/' + state + '/' + city + '.json')
+  getCurrentInfo(lat, long){
+    console.log('latlong',lat, long)
+    axios.get('http://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
     .then ((data) => {
+      console.log('current',data)
       this.setState(
         {
+          
           icon: data.data.current_observation.icon,
           location: data.data.current_observation.display_location.city,
           date: data.data.current_observation.local_time_rfc822,
@@ -46,18 +49,18 @@ class CurrentContainer extends React.Component {
   }
 
   componentDidMount() {
-    const state = this.props.state
-    const city = this.props.city
-    this.getCurrentInfo(state, city)
+    const lat = this.props.lat
+    const long = this.props.long
+    this.getCurrentInfo(lat, long)
   }
 
   componentWillReceiveProps(nextProps){
-  // Check if city actually changed
-  if(JSON.stringify(this.props.city) !== JSON.stringify(nextProps.city))
+  // Check if lat actually changed
+  if(JSON.stringify(this.props.lat) !== JSON.stringify(nextProps.lat))
     {
-      const city = nextProps.city
-      const state = nextProps.state
-      this.getCurrentInfo(state, city)
+      const lat = nextProps.lat
+      const long = nextProps.long
+      this.getCurrentInfo(lat, long)
      }
 }
 
@@ -98,7 +101,9 @@ class CurrentContainer extends React.Component {
 
 CurrentContainer.propTypes = {
   city: PropTypes.string.isRequired,
-  state: PropTypes.string.isRequired
+  state: PropTypes.string.isRequired,
+  lat: PropTypes.number,
+  lng: PropTypes.number
 }
 
 

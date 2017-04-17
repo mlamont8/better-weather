@@ -28,10 +28,13 @@ class Main extends React.Component {
   componentDidMount() {
     axios.get('http://ip-api.com/json')
     .then ((data) => {
+      console.log('main', data)
       this.setState(
         {
           city: data.data.city,
           state: data.data.region,
+          lat: data.data.lat,
+          long: data.data.lon,
           retrieving: false
         },
       )
@@ -42,11 +45,13 @@ class Main extends React.Component {
 
 // Updates lat and long after new search selection
 onSuggestSelection(suggest) {
-  console.log(suggest.gmaps)
+  console.log(suggest)
   this.setState(
     {
-      city: suggest.gmaps.address_components[0].long_name,
-      state: suggest.gmaps.address_components[2].short_name
+      lat: suggest.location.lat,
+      long: suggest.location.lng,
+      city: suggest.gmaps.address_components[0].short_name,
+      state: suggest.gmaps.address_components[1].short_name
     }
   )
 
@@ -62,10 +67,10 @@ onSuggestSelection(suggest) {
     ? <p>Loading</p>
     :
       <div className="container main">
-        <Navbar>
+        <Navbar inverse>
        <Navbar.Header>
          <Navbar.Brand>
-           <a href="#">Brand</a>
+           <a href="#">Better Weather</a>
          </Navbar.Brand>
          <Navbar.Toggle />
        </Navbar.Header>
@@ -94,10 +99,14 @@ onSuggestSelection(suggest) {
         <CurrentContainer
           city={this.state.city}
           state={this.state.state}
+          lat={this.state.lat}
+          long={this.state.long}
       />
         <ForecastContainer
           city={this.state.city}
           state={this.state.state}
+          lat={this.state.lat}
+          long={this.state.long}
       />
     </div>
 

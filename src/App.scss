@@ -16,6 +16,12 @@ $gray: #2A2C2B;
 
 }
 
+.navbar{
+  border: none;
+  border-radius: 0;
+  background-color: rgba(0,0,0,0.5);
+}
+
 .halfcontainer {
   min-height: 300px;
 
@@ -36,4 +42,11 @@ $gray: #2A2C2B;
   margin: 45px;
   height: 150px;
   background-color: $black;
+}
+
+.geosuggest__input {
+  border-radius: 30px;
+}
+.geosuggest__input-wrapper {
+  padding: 5px 15px 0 0;
 }

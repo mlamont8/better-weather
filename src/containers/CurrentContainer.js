@@ -15,7 +15,9 @@ class CurrentContainer extends React.Component {
     super(props);
     this.state = {
       icon: '',
-      location: '',
+      cityState: '',
+      city: '',
+      state: '',
       date: '',
       temp: 0,
       condition: '',
@@ -33,14 +35,15 @@ class CurrentContainer extends React.Component {
       console.log('current',data)
       this.setState(
         {
-          
+
           icon: data.data.current_observation.icon,
-          location: data.data.current_observation.display_location.city,
+          city: data.data.current_observation.display_location.city,
           date: data.data.current_observation.local_time_rfc822,
           temp: Math.trunc(data.data.current_observation.temp_f),
           condition: data.data.current_observation.weather,
           windDir: data.data.current_observation.wind_dir,
           windSp: data.data.current_observation.wind_mph,
+          usState: data.data.current_observation.display_location.state,
           retrieving: false
         }
       )
@@ -70,8 +73,8 @@ class CurrentContainer extends React.Component {
     (
       <div className='halfcontainer jumbotron'>
           <Location
-            city={this.props.city}
-            state={this.props.state}
+            city={this.state.city}
+            state={this.state.usState}
           />
         <div className="row">
           <CurrentTemp
@@ -100,8 +103,6 @@ class CurrentContainer extends React.Component {
 }
 
 CurrentContainer.propTypes = {
-  city: PropTypes.string.isRequired,
-  state: PropTypes.string.isRequired,
   lat: PropTypes.number,
   lng: PropTypes.number
 }

@@ -13,8 +13,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: '',
-      value: '',
+      cityState: '',
       retrieving: true,
       lat: 0,
       long: 0
@@ -31,8 +30,6 @@ class Main extends React.Component {
       console.log('main', data)
       this.setState(
         {
-          city: data.data.city,
-          state: data.data.region,
           lat: data.data.lat,
           long: data.data.lon,
           retrieving: false
@@ -50,8 +47,7 @@ onSuggestSelection(suggest) {
     {
       lat: suggest.location.lat,
       long: suggest.location.lng,
-      city: suggest.gmaps.address_components[0].short_name,
-      state: suggest.gmaps.address_components[1].short_name
+
     }
   )
 
@@ -95,14 +91,12 @@ onSuggestSelection(suggest) {
        </Navbar.Collapse>
      </Navbar>
         <CurrentContainer
-          city={this.state.city}
-          state={this.state.state}
+
           lat={this.state.lat}
           long={this.state.long}
       />
         <ForecastContainer
-          city={this.state.city}
-          state={this.state.state}
+
           lat={this.state.lat}
           long={this.state.long}
       />

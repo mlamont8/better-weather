@@ -1,14 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const CurrentTemp = ({temp}) => (
+const CurrentTemp = ({temp, feelsLike}) => (
 
-    <div className=" col-md-2 currentTemp text-center">
+    <div className="currentTemp">
       <h1>{temp} &#176;</h1>
+      <p className="feelsLike">Feels like: {feelsLike} &#176; F</p>
+
     </div>
 )
 
 CurrentTemp.propTypes = {
-  temp: React.PropTypes.number.isRequired
+  temp: PropTypes.number.isRequired,
+  feelsLike: PropTypes.string.isRequired
 }
 
 export default CurrentTemp;

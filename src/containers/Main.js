@@ -90,13 +90,12 @@ onSuggestSelection(suggest) {
 
        </Navbar.Collapse>
      </Navbar>
-        <CurrentContainer
 
+        <CurrentContainer
           lat={this.state.lat}
           long={this.state.long}
       />
         <ForecastContainer
-
           lat={this.state.lat}
           long={this.state.long}
       />

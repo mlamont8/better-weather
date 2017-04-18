@@ -3,9 +3,15 @@ $black : #1E1E20;
 $light: #D9CB9E;
 $gray: #2A2C2B;
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
 
 .App {
   text-align: center;
+
 
 }
 
@@ -30,8 +36,15 @@ $gray: #2A2C2B;
 }
 
 .currentTemp{
+  border-radius: 3px;
 
-      background-color: $gray;
+  height: 131px;
+}
+
+.wind{
+  border-radius: 3px;
+  background-color: $gray;
+  height: 131px;
 }
 
 .jumbotron{
@@ -39,11 +52,30 @@ $gray: #2A2C2B;
   background-color: $black;
 }
 
+.jumbotron p {
+  background-color: $light;
+  color: $black;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.precip,
+.conditions {
+  background-color: $light;
+  color: $black;
+  border-radius: 3px;
+}
+
 .forecastBlock {
 
   margin: 45px;
   height: 150px;
   background-color: $black;
+  border-radius: 3px;
+  font-weight: 300;
+
+
+
 }
 
 .geosuggest__input {

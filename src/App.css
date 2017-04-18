@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400");
+body {
+  font-family: 'Roboto', sans-serif; }
+
 .App {
   text-align: center; }
 
@@ -15,16 +19,36 @@
   min-height: 300px; }
 
 .currentTemp {
-  background-color: #2A2C2B; }
+  border-radius: 3px;
+  height: 131px; }
+
+.wind {
+  border-radius: 3px;
+  background-color: #2A2C2B;
+  height: 131px; }
 
 .jumbotron {
   padding-top: 20px;
   background-color: #1E1E20; }
 
+.jumbotron p {
+  background-color: #D9CB9E;
+  color: #1E1E20;
+  font-size: 12px;
+  border-radius: 3px; }
+
+.precip,
+.conditions {
+  background-color: #D9CB9E;
+  color: #1E1E20;
+  border-radius: 3px; }
+
 .forecastBlock {
   margin: 45px;
   height: 150px;
-  background-color: #1E1E20; }
+  background-color: #1E1E20;
+  border-radius: 3px;
+  font-weight: 300; }
 
 .geosuggest__input {
   border-radius: 30px;

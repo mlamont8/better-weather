@@ -38,12 +38,14 @@ class CurrentContainer extends React.Component {
 
           icon: data.data.current_observation.icon,
           city: data.data.current_observation.display_location.city,
-          date: data.data.current_observation.local_time_rfc822,
           temp: Math.trunc(data.data.current_observation.temp_f),
           condition: data.data.current_observation.weather,
           windDir: data.data.current_observation.wind_dir,
           windSp: data.data.current_observation.wind_mph,
           usState: data.data.current_observation.display_location.state,
+          feelsLike: Math.trunc(data.data.current_observation.feelslike_f),
+          visibility: data.data.current_observation.visibility_mi,
+          precip: data.data.current_observation.precip_today_in,
           retrieving: false
         }
       )
@@ -77,23 +79,32 @@ class CurrentContainer extends React.Component {
             state={this.state.usState}
           />
         <div className="row">
-          <CurrentTemp
-            temp={this.state.temp}
-          />
 
-          <div className="col-md-8 text-center">
+          <div className="col-md-2 condition">
             <h3>
               {this.state.condition}
             </h3>
+            <Image src={'https://icons.wxug.com/i/c/k/' + this.state.icon + '.gif'}></Image>
+          </div>
 
-          <Image src={'https://icons.wxug.com/i/c/k/' + this.state.icon + '.gif'}></Image>
+          <div className="col-md-2 col-md-offset-3 text-center">
+
+          <CurrentTemp
+            temp={this.state.temp}
+            feelsLike={this.state.feelsLike}
+          />
         </div>
         <Wind
           windSp={this.state.windSp}
           windDir={this.state.windDir}
-
         />
 
+        </div>
+        <div className="row">
+          <div className="col-md-6 col-md-offset-3   text-center">
+            <h4>Precipitation Today: {this.state.precip} inches</h4>
+            <h4>Visibility: {this.state.visibility} miles</h4>
+          </div>
         </div>
 
       </div>

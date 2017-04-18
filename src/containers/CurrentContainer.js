@@ -29,10 +29,8 @@ class CurrentContainer extends React.Component {
   }
 
   getCurrentInfo(lat, long){
-    console.log('latlong',lat, long)
     axios.get('http://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
     .then ((data) => {
-      console.log('current',data)
       this.setState(
         {
 
@@ -80,7 +78,7 @@ class CurrentContainer extends React.Component {
           />
         <div className="row">
 
-          <div className="col-md-2 condition text-center">
+          <div className="col-md-2 currentCondition text-center">
             <h3>
               {this.state.condition}
             </h3>

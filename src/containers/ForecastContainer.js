@@ -48,7 +48,9 @@ class ForecastContainer extends React.Component {
 
     render() {
 
-      return (
+      return this.state.retrieving === true ?
+      <div> Loading...</div> :
+      (
         <div className="row halfcontainer">
           {this.state.forecast.map((data, index) => {
             return (

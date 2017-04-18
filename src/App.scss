@@ -3,7 +3,7 @@ $black : #1E1E20;
 $light: #D9CB9E;
 $gray: #2A2C2B;
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 body{
     font-family: 'Roboto', sans-serif;
@@ -37,11 +37,15 @@ body{
 
 .currentTemp{
   border-radius: 3px;
-
   height: 131px;
+  h1 {
+    font-weight: 100;
+    font-size: 90px;
+  }
 }
 
-.wind{
+.wind,
+.condition {
   border-radius: 3px;
   background-color: $gray;
   height: 131px;

@@ -80,14 +80,14 @@ class CurrentContainer extends React.Component {
           />
         <div className="row">
 
-          <div className="col-md-2 condition">
+          <div className="col-md-2 condition text-center">
             <h3>
               {this.state.condition}
             </h3>
             <Image src={'https://icons.wxug.com/i/c/k/' + this.state.icon + '.gif'}></Image>
           </div>
 
-          <div className="col-md-2 col-md-offset-3 text-center">
+          <div className="col-md-4 col-md-offset-2 text-center">
 
           <CurrentTemp
             temp={this.state.temp}

@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
 body {
   font-family: 'Roboto', sans-serif; }
 
@@ -6,14 +5,27 @@ body {
   text-align: center; }
 
 .main {
-  background-color: #374140;
+  background-color: #000;
   color: #D9CB9E;
-  background-image: url("./images/bw-background.png"); }
+  padding: 0;
+  background-image: url("./images/sky.png"); }
+
+.currentContainer {
+  background-image: url("./images/sky.png"); }
+
+.jumbotron {
+  padding-top: 100px; }
+
+.container .jumbotron, .container-fluid .jumbotron {
+  border-radius: 0; }
 
 .navbar-inverse {
   background-color: transparent;
   border-bottom: none;
-  background-image: none; }
+  background-image: none;
+  margin-bottom: 0;
+  position: absolute;
+  border: 0; }
 
 .halfcontainer {
   min-height: 300px; }
@@ -28,19 +40,13 @@ body {
 
 .wind,
 .currentCondition {
-  border-radius: 3px;
-  background-color: #2A2C2B;
-  height: 131px; }
-
-.jumbotron {
-  padding-top: 20px;
-  background-color: #1E1E20; }
+  border-radius: 10px;
+  height: 131px;
+  background: rgba(0, 0, 0, 0.2); }
 
 .jumbotron p {
-  background-color: #D9CB9E;
-  color: #1E1E20;
-  font-size: 12px;
-  border-radius: 3px; }
+  color: #000;
+  font-size: 16px; }
 
 .precip,
 .conditions {
@@ -51,16 +57,17 @@ body {
 .forecastBlock {
   margin: 45px;
   height: 150px;
-  background-color: #1E1E20;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  font-weight: 300; }
+  color: #000; }
 
 .geosuggest__input {
   border-radius: 30px;
   width: 300px;
   padding: 5px;
   border: 5px;
-  background-color: #1E1E20; }
+  background: rgba(0, 0, 0, 0.3);
+  color: #1E1E20; }
 
 .geosuggest__input-wrapper {
   padding: 5px 15px 0 0; }

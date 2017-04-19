@@ -25,13 +25,12 @@ class Main extends React.Component {
 
 
   componentDidMount() {
-    axios.get('http://ip-api.com/json')
+    axios.get('https://ipapi.co/json/')
     .then ((data) => {
-      console.log('main', data)
       this.setState(
         {
-          lat: data.data.lat,
-          long: data.data.lon,
+          lat: data.data.latitude,
+          long: data.data.longitude,
           retrieving: false
         },
       )
@@ -62,12 +61,12 @@ onSuggestSelection(suggest) {
     return retrieving === true
     ? <p>Loading</p>
     :
-      <div className="container main">
+      <div className="container-fluid main">
         <Navbar inverse>
        <Navbar.Header>
-         <Navbar.Brand>
+         {/* <Navbar.Brand>
            <a href="#">Better Weather</a>
-         </Navbar.Brand>
+         </Navbar.Brand> */}
          <Navbar.Toggle />
        </Navbar.Header>
        <Navbar.Collapse>

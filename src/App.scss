@@ -3,10 +3,9 @@ $black : #1E1E20;
 $light: #D9CB9E;
 $gray: #2A2C2B;
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
 body{
     font-family: 'Roboto', sans-serif;
+
 }
 
 .App {
@@ -16,18 +15,32 @@ body{
 }
 
 .main {
-  background-color: $base;
+background-color: #000;
   color: $light;
-  background-image: url('./images/bw-background.png');
+  padding: 0;
+    background-image: url('./images/sky.png');
+}
+
+.currentContainer {
+    background-image: url('./images/sky.png');
 
 }
 
+.jumbotron {
+  padding-top: 100px;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+  border-radius: 0;
+}
 
 .navbar-inverse{
   background-color: transparent;
   border-bottom: none;
   background-image: none;
-
+  margin-bottom: 0;
+  position: absolute;
+  border: 0;
 }
 
 .halfcontainer {
@@ -46,21 +59,18 @@ body{
 
 .wind,
 .currentCondition {
-  border-radius: 3px;
-  background-color: $gray;
+  border-radius: 10px;
   height: 131px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.jumbotron{
-  padding-top: 20px;
-  background-color: $black;
-}
+
 
 .jumbotron p {
-  background-color: $light;
-  color: $black;
-  font-size: 12px;
-  border-radius: 3px;
+
+  color: #000;
+  font-size: 16px;
+
 }
 
 .precip,
@@ -74,12 +84,9 @@ body{
 
   margin: 45px;
   height: 150px;
-  background-color: $black;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  font-weight: 300;
-
-
-
+  color: #000;
 }
 
 .geosuggest__input {
@@ -87,7 +94,8 @@ body{
   width: 300px;
   padding: 5px;
   border: 5px;
-  background-color: $black;
+  background: rgba(0, 0, 0, 0.3);
+  color: $black;
 }
 .geosuggest__input-wrapper {
   padding: 5px 15px 0 0;

@@ -72,5 +72,17 @@ body {
 .geosuggest__input-wrapper {
   padding: 5px 15px 0 0; }
 
+.geosuggest__suggests--hidden {
+  max-height: 0;
+  overflow: hidden;
+  border-width: 0; }
+
+.geosuggest__suggests {
+  color: #000; }
+
+.geosuggest__item--active {
+  background: #267dc0;
+  color: #fff; }
+
 .navbar-inverse .navbar-brand {
   color: #D9CB9E; }

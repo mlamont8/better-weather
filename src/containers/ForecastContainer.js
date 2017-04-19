@@ -18,6 +18,7 @@ class ForecastContainer extends React.Component {
   getForecastData(lat, long){
     axios.get('https://api.wunderground.com/api/'+ apiKey + '/forecast/q/' + lat +','+ long + '.json')
     .then ((data) => {
+      console.log('forecast',data);
       this.setState(
         {
           forecast: data.data.forecast.simpleforecast.forecastday,
@@ -48,7 +49,7 @@ class ForecastContainer extends React.Component {
     render() {
 
       return this.state.retrieving === true ?
-      <div> Loading...</div> :
+      <div></div> :
       (
         <div className="row halfcontainer">
           {this.state.forecast.map((data, index) => {
@@ -57,7 +58,7 @@ class ForecastContainer extends React.Component {
                 <p>
                   {data.date.weekday}
                 </p>
-                <Image responsive className="center-block" src={'https://icons.wxug.com/i/c/k/' + data.icon + '.gif'}></Image>
+                <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/' + data.icon + '.png'}></Image>
                 <p className="conditions">{data.conditions}</p>
                 <div className='row'>
                   <div className='col-md-6'>

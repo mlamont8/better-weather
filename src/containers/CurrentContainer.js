@@ -82,7 +82,7 @@ class CurrentContainer extends React.Component {
             <h3>
               {this.state.condition}
             </h3>
-            <Image src={'https://icons.wxug.com/i/c/i/' + this.state.icon + '.gif'}></Image>
+            <Image src={process.env.PUBLIC_URL + './icons/' + this.state.icon + '.png'}></Image>
           </div>
 
           <div className="col-md-4 col-md-offset-2 text-center">

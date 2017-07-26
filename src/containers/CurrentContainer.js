@@ -4,6 +4,7 @@ import { Image } from 'react-bootstrap';
 import Location from '../components/location';
 import CurrentTemp from '../components/currentTemp';
 import Wind  from '../components/wind';
+import Loader  from '../components/loader';
 import PropTypes from 'prop-types';
 
 
@@ -69,7 +70,7 @@ class CurrentContainer extends React.Component {
 
   render() {
     return this.state.retrieving === true ?
-    <div> Loading...</div> :
+    <Loader /> :
     (
       <div className='halfcontainer jumbotron currentContainer'>
           <Location

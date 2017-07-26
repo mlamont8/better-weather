@@ -41,6 +41,13 @@ background-color: #000;
   margin-bottom: 0;
   position: absolute;
   border: 0;
+  border-color: transparent;
+    .navbar-form{
+      border-color: transparent;
+    }
+    .navbar-collapse{
+      border: 0;
+    }
 }
 
 .halfcontainer {
@@ -97,6 +104,14 @@ background-color: #000;
   background: rgba(0, 0, 0, 0.3);
   color: $black;
 }
+
+
+.geosuggest__input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 transparent;
+  border: 0;
+}
+
 .geosuggest__input-wrapper {
   padding: 5px 15px 0 0;
 }
@@ -118,4 +133,22 @@ background-color: #000;
 
 .navbar-inverse .navbar-brand{
   color: $light;
+}
+
+#loader{
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid $light;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
 }

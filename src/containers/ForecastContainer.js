@@ -18,7 +18,6 @@ class ForecastContainer extends React.Component {
   getForecastData(lat, long){
     axios.get('https://api.wunderground.com/api/'+ apiKey + '/forecast/q/' + lat +','+ long + '.json')
     .then ((data) => {
-      console.log('forecast',data);
       this.setState(
         {
           forecast: data.data.forecast.simpleforecast.forecastday,

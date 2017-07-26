@@ -2,7 +2,6 @@ import React from 'react';
 import { Navbar, FormGroup } from 'react-bootstrap';
 import CurrentContainer from './CurrentContainer';
 import ForecastContainer from './ForecastContainer';
-import axios from 'axios';
 import Geosuggest from 'react-geosuggest';
 
 
@@ -25,18 +24,36 @@ class Main extends React.Component {
 
 
   componentDidMount() {
-    axios.get('https://ipapi.co/json/')
-    .then ((data) => {
-      this.setState(
+// Retrieve lat and long using browser for user...defaults to GSO, NC
+      var that = this
+  function useGeoData(data){
+    that.setState(
+      {
+        lat: data.coords.latitude,
+        long: data.coords.longitude,
+        retrieving: false
+      }
+    )
+     };
+
+
+        if (navigator.geolocation)
         {
-          lat: data.data.latitude,
-          long: data.data.longitude,
-          retrieving: false
-        },
-      )
-    }
-  )
+
+        navigator.geolocation.getCurrentPosition(useGeoData);
+      }else{
+        this.setState(
+          {
+            lat: 36.0726354,
+            long: -79.7919754,
+            retrieving: false
+          }
+        )
+      }
+
   }
+
+
 
 
 // Updates lat and long after new search selection
@@ -64,17 +81,12 @@ onSuggestSelection(suggest) {
       <div className="container-fluid main">
         <Navbar inverse>
        <Navbar.Header>
-         {/* <Navbar.Brand>
-           <a href="#">Better Weather</a>
-         </Navbar.Brand> */}
          <Navbar.Toggle />
        </Navbar.Header>
        <Navbar.Collapse>
-
          <Navbar.Form pullRight>
+
            <FormGroup>
-
-
              <div>
              <Geosuggest
                placeholder='Enter City Name'

@@ -25,7 +25,12 @@ body {
   background-image: none;
   margin-bottom: 0;
   position: absolute;
-  border: 0; }
+  border: 0;
+  border-color: transparent; }
+  .navbar-inverse .navbar-form {
+    border-color: transparent; }
+  .navbar-inverse .navbar-collapse {
+    border: 0; }
 
 .halfcontainer {
   min-height: 300px; }
@@ -33,10 +38,9 @@ body {
 .currentTemp {
   border-radius: 3px;
   height: 131px; }
-
-.currentTemp h1 {
-  font-weight: 100;
-  font-size: 90px; }
+  .currentTemp h1 {
+    font-weight: 100;
+    font-size: 90px; }
 
 .wind,
 .currentCondition {
@@ -69,6 +73,11 @@ body {
   background: rgba(0, 0, 0, 0.3);
   color: #1E1E20; }
 
+.geosuggest__input:focus {
+  border-color: transparent;
+  box-shadow: 0 0 0 transparent;
+  border: 0; }
+
 .geosuggest__input-wrapper {
   padding: 5px 15px 0 0; }
 
@@ -86,3 +95,19 @@ body {
 
 .navbar-inverse .navbar-brand {
   color: #D9CB9E; }
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #D9CB9E;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite; }

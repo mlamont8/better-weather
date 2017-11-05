@@ -4,6 +4,7 @@ import { Image } from 'react-bootstrap';
 import Location from '../components/location';
 import CurrentTemp from '../components/currentTemp';
 import Wind  from '../components/wind';
+import Loader  from '../components/loader';
 import PropTypes from 'prop-types';
 
 
@@ -29,7 +30,7 @@ class CurrentContainer extends React.Component {
   }
 
   getCurrentInfo(lat, long){
-    axios.get('http://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
+    axios.get('https://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
     .then ((data) => {
       this.setState(
         {
@@ -69,9 +70,9 @@ class CurrentContainer extends React.Component {
 
   render() {
     return this.state.retrieving === true ?
-    <div> Loading...</div> :
+    <Loader /> :
     (
-      <div className='halfcontainer jumbotron'>
+      <div className='halfcontainer jumbotron currentContainer'>
           <Location
             city={this.state.city}
             state={this.state.usState}
@@ -82,7 +83,7 @@ class CurrentContainer extends React.Component {
             <h3>
               {this.state.condition}
             </h3>
-            <Image src={'https://icons.wxug.com/i/c/k/' + this.state.icon + '.gif'}></Image>
+            <Image src={process.env.PUBLIC_URL + './icons/' + this.state.icon + '.png'}></Image>
           </div>
 
           <div className="col-md-4 col-md-offset-2 text-center">

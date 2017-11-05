@@ -12,7 +12,7 @@ const CurrentTemp = ({temp, feelsLike}) => (
 
 CurrentTemp.propTypes = {
   temp: PropTypes.number.isRequired,
-  feelsLike: PropTypes.string.isRequired
+  feelsLike: PropTypes.number.isRequired
 }
 
 export default CurrentTemp;

@@ -18,7 +18,5 @@ const helpers = {
     console.log('util',today, week);
   }))
   }
-  // .catch(function (error) {
-  //   console.log(error);
-  // });
+
 }

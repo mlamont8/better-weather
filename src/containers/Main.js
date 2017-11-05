@@ -26,15 +26,15 @@ class Main extends React.Component {
   componentDidMount() {
 // Retrieve lat and long using browser for user...defaults to GSO, NC
       var that = this
-  function useGeoData(data){
-    that.setState(
-      {
-        lat: data.coords.latitude,
-        long: data.coords.longitude,
-        retrieving: false
-      }
-    )
-     };
+      function useGeoData(data){
+        that.setState(
+          {
+            lat: data.coords.latitude,
+            long: data.coords.longitude,
+            retrieving: false
+          }
+        )
+        };
 
 
         if (navigator.geolocation)
@@ -58,8 +58,7 @@ class Main extends React.Component {
 
 // Updates lat and long after new search selection
 onSuggestSelection(suggest) {
-  console.log(suggest)
-  this.setState(
+   this.setState(
     {
       lat: suggest.location.lat,
       long: suggest.location.lng,
@@ -71,7 +70,6 @@ onSuggestSelection(suggest) {
 
 
   render() {
-
     const { retrieving } = this.state;
 
 

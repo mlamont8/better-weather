@@ -14,7 +14,7 @@ class ForecastContainer extends React.Component {
       retrieving: true
     }
   }
-
+  // Get forecast data from wunderground
   getForecastData(lat, long){
     axios.get('https://api.wunderground.com/api/'+ apiKey + '/forecast/q/' + lat +','+ long + '.json')
     .then ((data) => {

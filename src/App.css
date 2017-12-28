@@ -2,7 +2,8 @@
   padding: 0; }
 
 .currentContainer {
-  background-image: url("./images/sky.png"); }
+  background-color: #133977;
+  color: #fff; }
 
 .searchContainer {
   height: 50px;
@@ -16,6 +17,3 @@
 
 body {
   font-family: 'Roboto', sans-serif; }
-
-.App {
-  text-align: center; }

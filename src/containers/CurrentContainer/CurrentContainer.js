@@ -72,14 +72,14 @@ class CurrentContainer extends React.Component {
     return this.state.retrieving === true ?
     <Loader /> :
     (
-      <div className='halfcontainer jumbotron currentContainer'>
+      <div className='col-md-8 currentContainer'>
           <Location
             city={this.state.city}
             state={this.state.usState}
           />
         <div className="row">
 
-          <div className="col-md-2 currentCondition text-center">
+          <div className="col-md-2 currentCondition">
             <h3>
               {this.state.condition}
             </h3>

@@ -80,15 +80,16 @@ onSuggestSelection(suggest) {
 
       <SearchContainer />
 
-
-        <CurrentContainer
-          lat={this.state.lat}
-          long={this.state.long}
-      />
-        <ForecastContainer
-          lat={this.state.lat}
-          long={this.state.long}
-      />
+      <div className="row">
+            <CurrentContainer
+              lat={this.state.lat}
+              long={this.state.long}
+          />
+            <ForecastContainer
+              lat={this.state.lat}
+              long={this.state.long}
+          />
+      </div>
     </div>
 
   }

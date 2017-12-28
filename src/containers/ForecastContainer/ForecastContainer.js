@@ -50,7 +50,7 @@ class ForecastContainer extends React.Component {
       return this.state.retrieving === true ?
       <div></div> :
       (
-        <div className="row halfcontainer">
+        <div className="col-md-4 forecastContainer">
           {this.state.forecast.map((data, index) => {
             return (
               <div key={index} className="col-md-2 forecastBlock text-center">

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Navbar, FormGroup } from 'react-bootstrap';
-import CurrentContainer from './CurrentContainer';
-import ForecastContainer from './ForecastContainer';
-import Geosuggest from 'react-geosuggest';
+import SearchContainer from '../SearchContainer/SearchContainer';
+import CurrentContainer from '../CurrentContainer/CurrentContainer';
+import ForecastContainer from '../ForecastContainer/ForecastContainer';
+
 
 
 
@@ -77,28 +77,9 @@ onSuggestSelection(suggest) {
     ? <p>Loading</p>
     :
       <div className="container-fluid main">
-        <Navbar inverse>
-       <Navbar.Header>
-         <Navbar.Toggle />
-       </Navbar.Header>
-       <Navbar.Collapse>
-         <Navbar.Form pullRight>
 
-           <FormGroup>
-             <div>
-             <Geosuggest
-               placeholder='Enter City Name'
-               className='citySuggest'
-               types={['(cities)']}
-               onSuggestSelect={this.onSuggestSelection.bind(this)}
-             />
-             </div>
-           </FormGroup>
+      <SearchContainer />
 
-         </Navbar.Form>
-
-       </Navbar.Collapse>
-     </Navbar>
 
         <CurrentContainer
           lat={this.state.lat}

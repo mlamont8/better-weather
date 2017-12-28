@@ -1,19 +1,25 @@
 .main {
-  padding: 0; }
+  padding: 0;
+  height: 100vh; }
+
+.contentContainer {
+  height: 100%; }
 
 .currentContainer {
   background-color: #133977;
-  color: #fff; }
+  color: #fff;
+  min-height: 100%; }
 
 .searchContainer {
-  height: 50px;
   background-color: #2c4d83; }
 
 .searchContainer h1 {
-  font-size: 20px;
-  margin-top: 0;
-  color: #FFFFFF;
-  padding: 12px 20px 0 30px; }
+  margin: 0;
+  color: #FFFFFF; }
 
 body {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  height: 100%; }
+
+html {
+  height: 100%; }

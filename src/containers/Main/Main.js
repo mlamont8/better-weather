@@ -76,11 +76,11 @@ onSuggestSelection(suggest) {
     return retrieving === true
     ? <p>Loading</p>
     :
-      <div className="container-fluid main">
-
+    <div className="main">
       <SearchContainer />
 
-      <div className="row">
+      <div className="contentContainer">
+
             <CurrentContainer
               lat={this.state.lat}
               long={this.state.long}
@@ -89,7 +89,8 @@ onSuggestSelection(suggest) {
               lat={this.state.lat}
               long={this.state.long}
           />
-      </div>
+          </div>
+
     </div>
 
   }

@@ -32,12 +32,14 @@ class CurrentContainer extends React.Component {
   getCurrentInfo(lat, long){
     axios.get('https://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
     .then ((data) => {
+      console.log(data);
       this.setState(
         {
 
           icon: data.data.current_observation.icon,
           city: data.data.current_observation.display_location.city,
           temp: Math.trunc(data.data.current_observation.temp_f),
+          celsius: Math.trunc(data.data.current_observation.temp_c),
           condition: data.data.current_observation.weather,
           windDir: data.data.current_observation.wind_dir,
           windSp: data.data.current_observation.wind_mph,
@@ -73,37 +75,34 @@ class CurrentContainer extends React.Component {
     <Loader /> :
     (
       <div className='col-md-8 currentContainer'>
-          <Location
-            city={this.state.city}
-            state={this.state.usState}
-          />
-        <div className="row">
+          <h2>
+              {this.state.city}, {this.state.usState}
+          </h2>
 
-          <div className="col-md-2 currentCondition">
-            <h3>
-              {this.state.condition}
-            </h3>
+        <div className="row">
+          <div className="col-md-6 currentIcon text-center">
             <Image src={process.env.PUBLIC_URL + './icons/' + this.state.icon + '.png'}></Image>
           </div>
 
-          <div className="col-md-4 col-md-offset-2 text-center">
+          <div className="col-md-6 currentInfo">
 
           <CurrentTemp
             temp={this.state.temp}
             feelsLike={this.state.feelsLike}
           />
-        </div>
-        <Wind
-          windSp={this.state.windSp}
-          windDir={this.state.windDir}
-        />
 
-        </div>
-        <div className="row">
+          <Wind
+            windSp={this.state.windSp}
+            windDir={this.state.windDir}
+          />
+
           <div className="col-md-6 col-md-offset-3   text-center">
             <h4>Precipitation Today: {this.state.precip} inches</h4>
             <h4>Visibility: {this.state.visibility} miles</h4>
           </div>
+        </div>
+
+
         </div>
 
       </div>

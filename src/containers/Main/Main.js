@@ -79,8 +79,8 @@ onSuggestSelection(suggest) {
     <div className="main">
       <SearchContainer />
 
-      <div className="contentContainer">
-
+      <div className="container-fluid contentContainer">
+        <div className="row">
             <CurrentContainer
               lat={this.state.lat}
               long={this.state.long}
@@ -90,7 +90,7 @@ onSuggestSelection(suggest) {
               long={this.state.long}
           />
           </div>
-
+      </div>
     </div>
 
   }

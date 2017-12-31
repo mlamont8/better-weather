@@ -3,18 +3,36 @@
   height: 100vh; }
 
 .contentContainer {
-  height: 100%; }
+  height: 100%;
+  padding: 0; }
 
 .currentContainer {
   background-color: #133977;
   color: #fff;
-  min-height: 100%; }
+  height: 100vh; }
+
+.currentIcon {
+  height: 100%; }
 
 .currentLocation {
   padding-top: 20px; }
 
+.currentRight {
+  height: 100%; }
+
+.currentInfo {
+  padding-top: 50px; }
+
 .currentDate {
-  padding-top: 100px; }
+  padding: 100px 0 30px 0; }
+
+.today {
+  margin: 0; }
+
+.day {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700; }
 
 .searchContainer {
   background-color: #2c4d83; }
@@ -24,27 +42,19 @@
   background-image: none;
   margin: 0;
   border: 0;
-  border-color: transparent; }
-  .navbar-inverse .navbar-form {
-    border-color: transparent; }
-  .navbar-inverse .navbar-collapse {
-    border: 0; }
-
-.halfcontainer {
-  min-height: 300px; }
-
-.currentTemp {
-  border-radius: 3px;
-  height: 131px; }
-  .currentTemp h1 {
-    font-weight: 100;
-    font-size: 90px; }
+  border-radius: 0;
+  color: #FFFFFF;
+  height: 70px; }
 
 .navbar-default .navbar-brand {
   margin: 0;
   padding: 25px 0 20px 10px;
   color: #FFFFFF;
   font-size: 20px; }
+
+.currentTemp h1 {
+  font-weight: 700;
+  font-size: 50px; }
 
 body {
   font-family: 'Roboto', sans-serif;

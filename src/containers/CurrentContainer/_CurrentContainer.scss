@@ -3,23 +3,35 @@
 .currentContainer {
     background-color: $blue;
     color: #fff;
-    min-height: 100%;
+    height: 100vh;
 
+}
+
+.currentIcon{
+  height: 100%;
 }
 
 .currentLocation{
   padding-top: 20px;
 }
 .currentRight{
-
-
+  height: 100%;
 }
 
 .currentInfo{
-
-
+padding-top: 50px;
 }
 
 .currentDate{
-  padding-top: 100px;
+  padding: 100px 0 30px 0;
+}
+
+.today{
+  margin: 0;
+}
+
+.day{
+  margin: 0;
+  font-size: 25px;
+  font-weight: 700;
 }

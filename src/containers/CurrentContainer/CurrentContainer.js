@@ -75,19 +75,19 @@ class CurrentContainer extends React.Component {
     return this.state.retrieving === true ?
     <Loader /> :
     (
-      <div className='col-md-8 currentContainer'>
+      <div className='container col-md-8 currentContainer'>
 
         <div className="row">
 
           <div className="col-md-6 currentIcon text-center">
-          <h2>
-              {this.state.city}, {this.state.usState}
-          </h2>
+            <h2 className="currentLocation">
+                {this.state.city}, {this.state.usState}
+            </h2>
             <Image src={process.env.PUBLIC_URL + './icons/256x256/' + this.state.icon + '.png'}></Image>
           </div>
 
-          <div className="col-md-6 currentInfo">
-
+          <div className="col-md-6 currentRight">
+          <div className="currentInfo">
           <div className="currentDate">
               <p>TODAY</p>
               {day}
@@ -99,13 +99,13 @@ class CurrentContainer extends React.Component {
           />
 
 
-          <div className="col-md-6 col-md-offset-3   text-center">
+          <div>
             <h4>Precipitation Today: {this.state.precip} inches</h4>
             <h4>Visibility: {this.state.visibility} miles</h4>
           </div>
         </div>
 
-
+        </div>
         </div>
 
       </div>

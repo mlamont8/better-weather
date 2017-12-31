@@ -5,6 +5,7 @@ import Location from '../../components/location';
 import CurrentTemp from '../../components/currentTemp';
 import Wind  from '../../components/wind';
 import Loader  from '../../components/loader';
+import moment from 'moment'
 import PropTypes from 'prop-types';
 
 
@@ -19,7 +20,6 @@ class CurrentContainer extends React.Component {
       cityState: '',
       city: '',
       state: '',
-      date: '',
       temp: 0,
       condition: '',
       windDir: '',
@@ -39,7 +39,6 @@ class CurrentContainer extends React.Component {
           icon: data.data.current_observation.icon,
           city: data.data.current_observation.display_location.city,
           temp: Math.trunc(data.data.current_observation.temp_f),
-          celsius: Math.trunc(data.data.current_observation.temp_c),
           condition: data.data.current_observation.weather,
           windDir: data.data.current_observation.wind_dir,
           windSp: data.data.current_observation.wind_mph,
@@ -71,30 +70,34 @@ class CurrentContainer extends React.Component {
 }
 
   render() {
+    const day = moment().format('dddd');
+    const date = moment().format('MMMM Do YYYY')
     return this.state.retrieving === true ?
     <Loader /> :
     (
       <div className='col-md-8 currentContainer'>
+
+        <div className="row">
+
+          <div className="col-md-6 currentIcon text-center">
           <h2>
               {this.state.city}, {this.state.usState}
           </h2>
-
-        <div className="row">
-          <div className="col-md-6 currentIcon text-center">
-            <Image src={process.env.PUBLIC_URL + './icons/' + this.state.icon + '.png'}></Image>
+            <Image src={process.env.PUBLIC_URL + './icons/256x256/' + this.state.icon + '.png'}></Image>
           </div>
 
           <div className="col-md-6 currentInfo">
 
+          <div className="currentDate">
+              <p>TODAY</p>
+              {day}
+              <p>{date}</p>
+          </div>
           <CurrentTemp
             temp={this.state.temp}
             feelsLike={this.state.feelsLike}
           />
 
-          <Wind
-            windSp={this.state.windSp}
-            windDir={this.state.windDir}
-          />
 
           <div className="col-md-6 col-md-offset-3   text-center">
             <h4>Precipitation Today: {this.state.precip} inches</h4>

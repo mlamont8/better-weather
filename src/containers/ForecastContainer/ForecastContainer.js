@@ -57,7 +57,7 @@ class ForecastContainer extends React.Component {
                 <p>
                   {data.date.weekday}
                 </p>
-                <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/' + data.icon + '.png'}></Image>
+                <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/64x64/' + data.icon + '.png'}></Image>
                 <p className="conditions">{data.conditions}</p>
                 <div className='row'>
                   <div className='col-md-6'>

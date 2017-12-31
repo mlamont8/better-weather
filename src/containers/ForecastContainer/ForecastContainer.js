@@ -50,14 +50,14 @@ class ForecastContainer extends React.Component {
       return this.state.retrieving === true ?
       <div></div> :
       (
-        <div className="row halfcontainer">
+        <div className="col-md-4 forecastContainer">
           {this.state.forecast.map((data, index) => {
             return (
               <div key={index} className="col-md-2 forecastBlock text-center">
                 <p>
                   {data.date.weekday}
                 </p>
-                <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/' + data.icon + '.png'}></Image>
+                <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/64x64/' + data.icon + '.png'}></Image>
                 <p className="conditions">{data.conditions}</p>
                 <div className='row'>
                   <div className='col-md-6'>

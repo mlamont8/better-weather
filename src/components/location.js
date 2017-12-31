@@ -2,11 +2,10 @@ import React from 'react';
 
 
 const Location = ({city, state}) =>   (
-    <div className="row text-center">
       <h2>
       {city}, {state}
       </h2>
-    </div>
+
   );
 
   Location.propTypes = {

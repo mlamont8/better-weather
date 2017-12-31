@@ -1,0 +1,22 @@
+// _SearchContainer.scss
+
+
+.searchContainer {
+  background-color: $altBlue2;
+}
+
+.navbar-default {
+  background-color: $altBlue2;
+  background-image: none;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  color: #FFFFFF;
+  height: 70px;
+  .navbar-brand{
+    margin: 0;
+    padding: 25px 0 20px 10px;
+    color: #FFFFFF;
+    font-size: 20px;
+  }
+}

@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import { Image } from 'react-bootstrap';
-import Location from '../components/location';
-import CurrentTemp from '../components/currentTemp';
-import Wind  from '../components/wind';
-import Loader  from '../components/loader';
+import Location from '../../components/location';
+import CurrentTemp from '../../components/currentTemp';
+import Wind  from '../../components/wind';
+import Loader  from '../../components/loader';
+import moment from 'moment'
 import PropTypes from 'prop-types';
 
 
@@ -19,7 +20,6 @@ class CurrentContainer extends React.Component {
       cityState: '',
       city: '',
       state: '',
-      date: '',
       temp: 0,
       condition: '',
       windDir: '',
@@ -32,6 +32,7 @@ class CurrentContainer extends React.Component {
   getCurrentInfo(lat, long){
     axios.get('https://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
     .then ((data) => {
+      console.log(data);
       this.setState(
         {
 
@@ -69,41 +70,42 @@ class CurrentContainer extends React.Component {
 }
 
   render() {
+    const day = moment().format('dddd');
+    const date = moment().format('MMMM Do YYYY')
     return this.state.retrieving === true ?
     <Loader /> :
     (
-      <div className='halfcontainer jumbotron currentContainer'>
-          <Location
-            city={this.state.city}
-            state={this.state.usState}
-          />
+      <div className='container col-md-8 currentContainer'>
+
         <div className="row">
 
-          <div className="col-md-2 currentCondition text-center">
-            <h3>
-              {this.state.condition}
-            </h3>
-            <Image src={process.env.PUBLIC_URL + './icons/' + this.state.icon + '.png'}></Image>
+          <div className="col-md-6 currentIcon text-center">
+            <h2 className="currentLocation">
+                {this.state.city}, {this.state.usState}
+            </h2>
+            <Image src={process.env.PUBLIC_URL + './icons/256x256/' + this.state.icon + '.png'}></Image>
           </div>
 
-          <div className="col-md-4 col-md-offset-2 text-center">
-
+          <div className="col-md-6 currentRight">
+          <div className="currentInfo">
+          <div className="currentDate">
+              <p>TODAY</p>
+              {day}
+              <p>{date}</p>
+          </div>
           <CurrentTemp
             temp={this.state.temp}
             feelsLike={this.state.feelsLike}
           />
-        </div>
-        <Wind
-          windSp={this.state.windSp}
-          windDir={this.state.windDir}
-        />
 
-        </div>
-        <div className="row">
-          <div className="col-md-6 col-md-offset-3   text-center">
+
+          <div>
             <h4>Precipitation Today: {this.state.precip} inches</h4>
             <h4>Visibility: {this.state.visibility} miles</h4>
           </div>
+        </div>
+
+        </div>
         </div>
 
       </div>

@@ -27,12 +27,10 @@ body {
   position: absolute;
   border: 0;
   border-color: transparent; }
-
-.navbar-inverse .navbar-form {
-  border-color: transparent; }
-
-.navbar-inverse .navbar-collapse {
-  border: 0; }
+  .navbar-inverse .navbar-form {
+    border-color: transparent; }
+  .navbar-inverse .navbar-collapse {
+    border: 0; }
 
 .halfcontainer {
   min-height: 300px; }
@@ -40,10 +38,9 @@ body {
 .currentTemp {
   border-radius: 3px;
   height: 131px; }
-
-.currentTemp h1 {
-  font-weight: 100;
-  font-size: 90px; }
+  .currentTemp h1 {
+    font-weight: 100;
+    font-size: 90px; }
 
 .wind,
 .currentCondition {

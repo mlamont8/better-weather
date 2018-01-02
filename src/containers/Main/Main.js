@@ -35,11 +35,8 @@ class Main extends React.Component {
           }
         )
         };
-
-
         if (navigator.geolocation)
         {
-
         navigator.geolocation.getCurrentPosition(useGeoData);
       }else{
         this.setState(

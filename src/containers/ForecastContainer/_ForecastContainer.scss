@@ -1,0 +1,37 @@
+
+
+.forecastContainer{
+  padding-top: 30px;
+
+  height: 100vh;
+  background-color: $blue;
+  color: #FFFFFF;
+  li{
+    background-color:$altBlue2;
+    list-style: none;
+  }
+  li:nth-child(odd){
+    background-color:$altBlue;
+    list-style: none;
+
+  }
+}
+
+.forecastBlock{
+  background-color: $altBlue;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.conditions{
+  font-size: 18px;
+  padding-top: 5px;
+}
+
+.highLow{
+  font-size: 25px;
+}
+
+.forecastDay{
+  padding-top: 20px;
+}

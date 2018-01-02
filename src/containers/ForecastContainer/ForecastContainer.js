@@ -18,6 +18,7 @@ class ForecastContainer extends React.Component {
   getForecastData(lat, long){
     axios.get('https://api.wunderground.com/api/'+ apiKey + '/forecast/q/' + lat +','+ long + '.json')
     .then ((data) => {
+      console.log(data);
       this.setState(
         {
           forecast: data.data.forecast.simpleforecast.forecastday,
@@ -53,23 +54,25 @@ class ForecastContainer extends React.Component {
         <div className="col-md-4 forecastContainer">
           {this.state.forecast.map((data, index) => {
             return (
-              <div key={index} className="col-md-2 forecastBlock text-center">
-                <p>
+              <li key={index} className="col-xs-12 forecastBlock">
+                <div className="forecastDate col-xs-4">
+                <p className="forecastDay">
                   {data.date.weekday}
                 </p>
-                <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/64x64/' + data.icon + '.png'}></Image>
-                <p className="conditions">{data.conditions}</p>
-                <div className='row'>
-                  <div className='col-md-6'>
-                    High: {data.high.fahrenheit}
-                  </div>
-                  <div className='col-md-6'>
-                    Low: {data.low.fahrenheit}
-
-                  </div>
-
                 </div>
-              </div>
+                <div className="forecastIcon col-xs-4">
+                <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/64x64/' + data.icon + '.png'}></Image>
+                </div>
+                <div className="forecastTemp col-xs-4">
+                <p className="conditions">{data.conditions}</p>
+                <p className="highLow">
+                    {data.high.fahrenheit}&#176;/
+                    {data.low.fahrenheit}&#176;</p>
+
+</div>
+
+
+              </li>
 
             )
           })}

@@ -30,7 +30,6 @@ class CurrentContainer extends React.Component {
   getCurrentInfo(lat, long) {
     axios.get('https://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
       .then((data) => {
-        console.log(data);
         this.setState(
           {
 

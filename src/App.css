@@ -6,6 +6,9 @@
   height: 100%;
   padding: 0; }
 
+.contentContainer .row {
+  margin-right: 0; }
+
 .currentContainer {
   background-color: #133977;
   color: #fff;
@@ -15,7 +18,8 @@
   height: 100%; }
 
 .currentLocation {
-  padding-top: 20px; }
+  padding-top: 20px;
+  margin-top: 0; }
 
 .currentRight {
   height: 100%; }
@@ -36,6 +40,7 @@
 
 .forecastContainer {
   padding-top: 30px;
+  padding-left: 30px;
   height: 100vh;
   background-color: #133977;
   color: #FFFFFF; }

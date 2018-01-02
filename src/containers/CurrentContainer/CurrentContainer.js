@@ -22,6 +22,7 @@ class CurrentContainer extends React.Component {
       condition: '',
       windDir: '',
       windSp: '',
+      precip: '',
       retrieving: true
 
     }
@@ -30,6 +31,14 @@ class CurrentContainer extends React.Component {
   getCurrentInfo(lat, long) {
     axios.get('https://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
       .then((data) => {
+        console.log(data);
+        data.data.current_observation.precip_today_in === "0.00" ?
+        this.setState({
+          precip: "No Precipitation"
+        }) :
+        this.setState({
+          precip: data.data.current_observation.precip_today_in +' inches of Precipitation'
+        })
         this.setState(
           {
 
@@ -41,12 +50,16 @@ class CurrentContainer extends React.Component {
             windSp: data.data.current_observation.wind_mph,
             usState: data.data.current_observation.display_location.state,
             feelsLike: Math.trunc(data.data.current_observation.feelslike_f),
-            precip: data.data.current_observation.precip_today_in,
+            // precip: data.data.current_observation.precip_today_in,
             retrieving: false
           }
         )
 
       })
+  }
+
+  precip() {
+    
   }
 
   componentDidMount() {
@@ -79,7 +92,7 @@ class CurrentContainer extends React.Component {
               <Image src={process.env.PUBLIC_URL + './icons/256x256/' + this.state.icon + '.png'}></Image>
               <p>{condition}</p>
               <div>
-                  <h4>Precipitation Today: {this.state.precip} inches</h4>
+                  {this.state.precip}
                 </div>
             </div>
 

@@ -16,7 +16,7 @@
     "react": "^15.5.3",
     "react-autocomplete": "^1.7.2",
     "react-bootstrap": "^0.30.8",
-    "react-dom": "^15.5.3",
+    "react-dom": "^15.5.3"
   },
   "scripts": {
     "build-css": "node-sass src/ -o src/",

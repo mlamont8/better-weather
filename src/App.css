@@ -5,11 +5,9 @@
 .contentContainer {
   height: 100%;
   padding: 0; }
-  .contentContainer .row {
-    margin-right: 0; }
 
-input {
-  color: black; }
+.contentContainer .row {
+  margin-right: 0; }
 
 .currentContainer {
   background-color: #133977;
@@ -46,12 +44,14 @@ input {
   height: 100vh;
   background-color: #133977;
   color: #FFFFFF; }
-  .forecastContainer li {
-    background-color: #2c4d83;
-    list-style: none; }
-  .forecastContainer li:nth-child(odd) {
-    background-color: #3d5b85;
-    list-style: none; }
+
+.forecastContainer li {
+  background-color: #2c4d83;
+  list-style: none; }
+
+.forecastContainer li:nth-child(odd) {
+  background-color: #3d5b85;
+  list-style: none; }
 
 .forecastBlock {
   background-color: #3d5b85;
@@ -86,11 +86,16 @@ input {
   border-radius: 0;
   color: #FFFFFF;
   height: 70px; }
-  .navbar-default .navbar-brand {
-    margin: 0;
-    padding: 25px 0 20px 10px;
-    color: #FFFFFF;
-    font-size: 20px; }
+
+.navbar-default .navbar-brand {
+  margin: 0;
+  padding: 25px 0 20px 10px;
+  color: #FFFFFF;
+  font-size: 20px; }
+
+.form-group input {
+  margin-top: 14px;
+  color: black; }
 
 .currentTemp h1 {
   font-weight: 700;

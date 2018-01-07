@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, FormGroup } from 'react-bootstrap';
+import { FormGroup } from 'react-bootstrap';
 import Autocomplete from 'react-autocomplete';
 import jsonp from 'jsonp';
 
@@ -58,7 +58,7 @@ class SearchContainer extends React.Component {
   }
 
   renderItem(item, isHighlighted) {
-   
+
     return (
       <div className="itemResult" style={{ background: isHighlighted ? 'lightgray' : 'black' }}>
         {item.name}
@@ -67,7 +67,7 @@ class SearchContainer extends React.Component {
   }
 
   getItemValue(item) {
-// Shows Item names in the form
+    // Shows Item names in the form
 
     return `${item.name}`;
   }
@@ -76,34 +76,34 @@ class SearchContainer extends React.Component {
   render() {
     return (
 
-      <Navbar>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <a href="#">Better Weather</a>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Navbar.Form pullRight>
-            <FormGroup>
-              <Autocomplete
-                getItemValue={this.getItemValue}
-                items={this.state.autocompleteData}
-                renderItem={this.renderItem}
-                value={this.state.value}
-                onChange={this.onChange}
-                onSelect={this.onSelect}
-                menuStyle={{ zIndex: '1', position: 'absolute' }}
-              />
-            </FormGroup>{' '}
-          </Navbar.Form>
-        </Navbar.Collapse>
-
-        <div>
 
 
+      <nav>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="header col-xs-12">
+              <div className="title col-xs-4">
+                <a href="#">Better Weather</a>
+              </div>
+              <div className="search col-xs-8">
+                <FormGroup className="pull-right">
+                  <Autocomplete
+                    getItemValue={this.getItemValue}
+                    items={this.state.autocompleteData}
+                    renderItem={this.renderItem}
+                    value={this.state.value}
+                    onChange={this.onChange}
+                    onSelect={this.onSelect}
+                    menuStyle={{ zIndex: '1', position: 'absolute', left: 'auto' }}
+                  />
+                </FormGroup>
+              </div>
+
+            </div>
+          </div>
         </div>
-      </Navbar>
+
+      </nav>
 
     )
   }

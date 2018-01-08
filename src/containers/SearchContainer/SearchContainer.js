@@ -60,7 +60,7 @@ class SearchContainer extends React.Component {
   renderItem(item, isHighlighted) {
 
     return (
-      <div className="itemResult" style={{ background: isHighlighted ? 'lightgray' : 'black' }}>
+      <div className="itemResult" style={{ background: isHighlighted ? '#2c4d83' : '#133977' }}>
         {item.name}
       </div>
     );

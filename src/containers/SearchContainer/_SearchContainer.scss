@@ -28,7 +28,24 @@
 
 .form-group input {
   margin-top: 20px;
-  color: black;
+  color: #ffffff;
+  background-color: $altBlue2;
+  border-radius: 4px;
+
 }
 
+input::-webkit-input-placeholder {
+color: #ffffff !important;
+}
 
+input:-moz-placeholder { /* Firefox 18- */
+color: #ffffff !important;
+}
+
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #ffffff !important;
+}
+
+input:-ms-input-placeholder {
+color: #ffffff !important;
+}

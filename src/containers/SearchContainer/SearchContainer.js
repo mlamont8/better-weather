@@ -89,6 +89,7 @@ class SearchContainer extends React.Component {
                 <FormGroup className="pull-right">
                   <Autocomplete
                     getItemValue={this.getItemValue}
+                    inputProps={{ placeholder: 'Enter Location...' }}
                     items={this.state.autocompleteData}
                     renderItem={this.renderItem}
                     value={this.state.value}

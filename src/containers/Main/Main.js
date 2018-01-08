@@ -27,6 +27,7 @@ onSearch(lat, long){
 }
 
 
+
   componentDidMount() {
 // Retrieve lat and long using browser for user...defaults to GSO, NC
       var that = this
@@ -45,8 +46,8 @@ onSearch(lat, long){
       }else{
         this.setState(
           {
-            lat: 36.0726354,
-            long: -79.7919754,
+            lat: 36.070000,
+            long: -79.769997,
             retrieving: false
           }
         )

@@ -1,6 +1,7 @@
 import React from 'react'
 import { FormGroup } from 'react-bootstrap';
 import Autocomplete from 'react-autocomplete';
+import Loader from '../../components/loader/loader'
 import jsonp from 'jsonp';
 
 
@@ -10,7 +11,6 @@ class SearchContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      retrieving: true,
       value: '',
       autocompleteData: []
     }
@@ -32,7 +32,8 @@ class SearchContainer extends React.Component {
         } else {
           console.log(data.RESULTS);
           _this.setState({
-            autocompleteData: data.RESULTS
+            autocompleteData: data.RESULTS,
+            retrieving: false
           })
         }
       });
@@ -50,7 +51,6 @@ class SearchContainer extends React.Component {
   onSelect(val, item) {
     //When an item is selected, sets the new
     //lat and longitute
-    console.log(item);
     this.props.onSearch(item.lat, item.lon);
     this.setState({
       value: item.name
@@ -68,16 +68,14 @@ class SearchContainer extends React.Component {
 
   getItemValue(item) {
     // Shows Item names in the form
-
     return `${item.name}`;
   }
 
 
   render() {
-    return (
-
-
-
+    return  this.state.retrieving === true ?
+      <Loader /> :
+      (
       <nav>
         <div className="container-fluid">
           <div className="row">

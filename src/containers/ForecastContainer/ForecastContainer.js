@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import Loader from '../../components/loader/loader';
 import { Image } from 'react-bootstrap';
 
 const apiKey = 'f67b93e533d6313a';
@@ -16,17 +17,17 @@ class ForecastContainer extends React.Component {
     }
   }
   // Get forecast data from wunderground
-  getForecastData(lat, long){
-    axios.get('https://api.wunderground.com/api/'+ apiKey + '/forecast/q/' + lat +','+ long + '.json')
-    .then ((data) => {
-      this.setState(
-        {
-          forecast: data.data.forecast.simpleforecast.forecastday,
-          retrieving: false
-        },
+  getForecastData(lat, long) {
+    axios.get('https://api.wunderground.com/api/' + apiKey + '/forecast/q/' + lat + ',' + long + '.json')
+      .then((data) => {
+        this.setState(
+          {
+            forecast: data.data.forecast.simpleforecast.forecastday,
+            retrieving: false
+          },
+        )
+      }
       )
-    }
-  )
   }
 
   componentDidMount() {
@@ -35,41 +36,40 @@ class ForecastContainer extends React.Component {
     this.getForecastData(lat, long)
   }
 
-  componentWillReceiveProps(nextProps){
-  // Check if city actually changed
-  if(JSON.stringify(this.props.lat) !== JSON.stringify(nextProps.lat))
-    {
+  componentWillReceiveProps(nextProps) {
+    // Check if city actually changed
+    if (JSON.stringify(this.props.lat) !== JSON.stringify(nextProps.lat)) {
       const lat = nextProps.lat
       const long = nextProps.long
       this.getForecastData(lat, long)
-     }
-}
+    }
+  }
 
 
-    render() {
+  render() {
 
-      return this.state.retrieving === true ?
-      <div></div> :
+    return this.state.retrieving === true ?
+      <Loader /> :
       (
         <div className="col-md-4 forecastContainer">
           {this.state.forecast.map((data, index) => {
             return (
               <li key={index} className="col-xs-12 forecastBlock">
                 <div className="forecastDate col-xs-4">
-                <p className="forecastDay">
-                  {data.date.weekday}
-                </p>
-                <p className="forecastMoment">{moment().add(index, 'days').format('LL')}</p>
+                  <p className="forecastDay">
+                    {data.date.weekday}
+                  </p>
+                  <p className="forecastMoment">{moment().add(index, 'days').format('LL')}</p>
                 </div>
                 <div className="forecastIcon col-xs-4">
-                <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/64x64/' + data.icon + '.png'}></Image>
+                  <Image responsive className="center-block" src={process.env.PUBLIC_URL + './icons/64x64/' + data.icon + '.png'}></Image>
                 </div>
                 <div className="forecastTemp col-xs-4">
-                <p className="highLow">
+                  <p className="highLow">
                     {data.high.fahrenheit}&#176;/
                     {data.low.fahrenheit}&#176;</p>
-                    <p className="conditions">{data.conditions}</p>
-</div>
+                  <p className="conditions">{data.conditions}</p>
+                </div>
 
               </li>
 
@@ -78,8 +78,8 @@ class ForecastContainer extends React.Component {
 
         </div>
       );
-    }
-
   }
 
-  export default ForecastContainer;
+}
+
+export default ForecastContainer;

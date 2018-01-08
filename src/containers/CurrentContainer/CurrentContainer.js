@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { Image } from 'react-bootstrap';
 import CurrentTemp from '../../components/currentTemp/currentTemp';
-import Loader from '../../components/loader';
+import Loader from '../../components/loader/loader';
 import moment from 'moment'
 import PropTypes from 'prop-types';
 
@@ -20,8 +20,6 @@ class CurrentContainer extends React.Component {
       state: '',
       temp: 0,
       condition: '',
-      windDir: '',
-      windSp: '',
       precip: '',
       retrieving: true
 
@@ -50,7 +48,6 @@ class CurrentContainer extends React.Component {
             windSp: data.data.current_observation.wind_mph,
             usState: data.data.current_observation.display_location.state,
             feelsLike: Math.trunc(data.data.current_observation.feelslike_f),
-            // precip: data.data.current_observation.precip_today_in,
             retrieving: false
           }
         )

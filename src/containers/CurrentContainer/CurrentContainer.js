@@ -29,14 +29,13 @@ class CurrentContainer extends React.Component {
   getCurrentInfo(lat, long) {
     axios.get('https://api.wunderground.com/api/' + apiKey + '/conditions/q/' + lat + ',' + long + '.json')
       .then((data) => {
-        console.log(data);
         data.data.current_observation.precip_today_in === "0.00" ?
-        this.setState({
-          precip: "No Precipitation"
-        }) :
-        this.setState({
-          precip: data.data.current_observation.precip_today_in +' inches of Precipitation'
-        })
+          this.setState({
+            precip: "No Precipitation"
+          }) :
+          this.setState({
+            precip: data.data.current_observation.precip_today_in + ' inches of Precipitation'
+          })
         this.setState(
           {
 
@@ -56,7 +55,7 @@ class CurrentContainer extends React.Component {
   }
 
   precip() {
-    
+
   }
 
   componentDidMount() {
@@ -82,34 +81,34 @@ class CurrentContainer extends React.Component {
       <Loader /> :
       (
         <div className='col-md-8 currentContainer'>
-            <div className="col-md-6 currentIcon text-center">
-              <h2 className="currentLocation">
-                {this.state.city}, {this.state.usState}
-              </h2>
-              <Image src={process.env.PUBLIC_URL + './icons/256x256/' + this.state.icon + '.png'}></Image>
-              <p>{condition}</p>
-              <div>
-                  {this.state.precip}
-                </div>
+          <div className="col-md-6 currentIcon text-center">
+            <h2 className="currentLocation">
+              {this.state.city}, {this.state.usState}
+            </h2>
+            <Image src={process.env.PUBLIC_URL + './icons/256x256/' + this.state.icon + '.png'}></Image>
+            <p>{condition}</p>
+            <div>
+              {this.state.precip}
             </div>
+          </div>
 
-            <div className="col-md-6 currentRight">
-              <div className="currentInfo">
-                <div className="currentDate">
-                  <p className="today">TODAY</p>
-                  <p className="day">{day}</p>
-                  <p>{date}</p>
-                </div>
-                <CurrentTemp
-                  temp={this.state.temp}
-                  feelsLike={this.state.feelsLike}
-                />
-
-
-
+          <div className="col-md-6 currentRight">
+            <div className="currentInfo">
+              <div className="currentDate">
+                <p className="today">TODAY</p>
+                <p className="day">{day}</p>
+                <p>{date}</p>
               </div>
+              <CurrentTemp
+                temp={this.state.temp}
+                feelsLike={this.state.feelsLike}
+              />
+
+
 
             </div>
+
+          </div>
         </div>
       );
   }

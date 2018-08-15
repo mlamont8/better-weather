@@ -53,7 +53,7 @@ class SearchContainer extends React.Component {
     //lat and longitute
     this.props.onSearch(item.lat, item.lon);
     this.setState({
-      value: item.name
+      value: ""
     })
   }
 
@@ -73,38 +73,38 @@ class SearchContainer extends React.Component {
 
 
   render() {
-    return  this.state.retrieving === true ?
+    return this.state.retrieving === true ?
       <Loader /> :
       (
-      <nav>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="header col-xs-12">
-              <div className="title col-xs-4">
-                <a href="#">Better Weather</a>
-              </div>
-              <div className="search col-xs-8">
-                <FormGroup className="pull-right">
-                  <Autocomplete
-                    getItemValue={this.getItemValue}
-                    inputProps={{ placeholder: 'Enter Location...' }}
-                    items={this.state.autocompleteData}
-                    renderItem={this.renderItem}
-                    value={this.state.value}
-                    onChange={this.onChange}
-                    onSelect={this.onSelect}
-                    menuStyle={{ zIndex: '1', position: 'absolute', left: 'auto' }}
-                  />
-                </FormGroup>
-              </div>
+        <nav>
+          <div className="container-fluid">
+            <div className="row">
+              <div className="header col-xs-12">
+                <div className="title col-xs-4">
+                  <a href="#">Better Weather</a>
+                </div>
+                <div className="search col-xs-8">
+                  <FormGroup className="pull-right">
+                    <Autocomplete
+                      getItemValue={this.getItemValue}
+                      inputProps={{ placeholder: 'Enter Location...' }}
+                      items={this.state.autocompleteData}
+                      renderItem={this.renderItem}
+                      value={this.state.value}
+                      onChange={this.onChange}
+                      onSelect={this.onSelect}
+                      menuStyle={{ zIndex: '1', position: 'absolute', left: 'auto' }}
+                    />
+                  </FormGroup>
+                </div>
 
+              </div>
             </div>
           </div>
-        </div>
 
-      </nav>
+        </nav>
 
-    )
+      )
   }
 }
 

@@ -5,10 +5,9 @@
 .contentContainer {
   height: 100%;
   padding: 0; }
-
-.contentContainer .row {
-  margin-right: 0;
-  height: 100%; }
+  .contentContainer .row {
+    margin-right: 0;
+    height: 100%; }
 
 .currentContainer {
   background-color: #133977;
@@ -45,14 +44,12 @@
   height: 100%;
   background-color: #133977;
   color: #FFFFFF; }
-
-.forecastContainer li {
-  background-color: #2c4d83;
-  list-style: none; }
-
-.forecastContainer li:nth-child(odd) {
-  background-color: #3d5b85;
-  list-style: none; }
+  .forecastContainer li {
+    background-color: #2c4d83;
+    list-style: none; }
+  .forecastContainer li:nth-child(odd) {
+    background-color: #3d5b85;
+    list-style: none; }
 
 .forecastBlock {
   background-color: #3d5b85;
@@ -91,11 +88,10 @@
 .title {
   margin: 0;
   padding: 20px 0 20px 10px; }
-
-.title a {
-  color: #FFFFFF;
-  font-size: 20px;
-  text-decoration: none; }
+  .title a {
+    color: #FFFFFF;
+    font-size: 20px;
+    text-decoration: none; }
 
 .form-group input {
   margin-top: 20px;
